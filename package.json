@@ -14,11 +14,15 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "fs": "0.0.1-security",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
-    "sequelize": "^6.3.5"
+    "path": "^0.12.7",
+    "sequelize": "^6.3.5",
+    "sequelize-auto": "^0.6.3"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "sequelize-cli": "^6.2.0"
   }
 }

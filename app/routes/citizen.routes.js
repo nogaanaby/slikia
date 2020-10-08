@@ -1,29 +1,39 @@
 module.exports = app => {
-    const tutorials = require("../controllers/citizen.controller.js");
+    //const citizens = require("../controllers/citizen.controller.js");
   
     var router = require("express").Router();
   
-    // Create a new Tutorial
-    router.post("/", tutorials.create);
+
+    router.get("/", (req,res)=>{
+      try{
+        res.send("hi")
+      }catch(e){
+        res.status(500).send(e)
+      }
+    });
+
+
+    // // Create a new citizen
+    // router.post("/", citizens.create);
   
-    // Retrieve all Tutorials
-    router.get("/", tutorials.findAll);
+    // // Retrieve all citizens
+    // router.get("/", citizens.findAll);
   
-    // Retrieve all published Tutorials
-    router.get("/published", tutorials.findAllPublished);
+    // // Retrieve all published citizens
+    // router.get("/published", citizens.findAllPublished);
   
-    // Retrieve a single Tutorial with id
-    router.get("/:id", tutorials.findOne);
+    // // Retrieve a single citizen with id
+    // router.get("/:id", citizens.findOne);
   
-    // Update a Tutorial with id
-    router.put("/:id", tutorials.update);
+    // // Update a citizen with id
+    // router.put("/:id", citizens.update);
   
-    // Delete a Tutorial with id
-    router.delete("/:id", tutorials.delete);
+    // // Delete a citizen with id
+    // router.delete("/:id", citizens.delete);
   
-    // Delete all Tutorials
-    router.delete("/", tutorials.deleteAll);
+    // // Delete all citizens
+    // router.delete("/", citizens.deleteAll);
   
-    app.use('/api/tutorials', router);
+     app.use('/api/citizens', router);
   };
   

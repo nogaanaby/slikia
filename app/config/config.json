@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "admin",
+    "password": null,
+    "database": "slikia",
+    "host": "localhost",
+    "dialect": "mysql"
+  }
+}
