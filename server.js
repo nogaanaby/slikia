@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const { Sequelize } = require('sequelize');
 
 const app = express();
 
@@ -17,6 +18,26 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
+
+
+
+/********************************************************
+console.log("arrived here?")
+
+const sequelize = new Sequelize('slikia', 'root', null, {
+  host: 'localhost',
+  dialect: 'mysql'
+});
+
+
+try {
+   sequelize.authenticate();
+  console.log('Connection has been established successfully.');
+} catch (error) {
+  console.error('Unable to connect to the database:', error);
+}
+
+*******************************************************/
 
 
 /********************************************************
@@ -51,19 +72,24 @@ connection.end()
 
 
 
-/********************************************************/
+/*******************************************************/
 const db = require("./app/models");
 
 //db.sequelize.sync();
 db.sequelize.sync({ force: true }).then(() => {
     console.log("Drop and re-sync db.");
   });
-/********************************************************/
-  
-
-
+/******************************************************/
 
 //require("./app/routes/citizen.routes")(app);
+
+
+
+
+
+
+
+
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
