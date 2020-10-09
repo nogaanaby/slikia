@@ -1,5 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const mysql2 = require("mysql2");
+const mysql = require("mysql");
 const cors = require("cors");
 const { Sequelize } = require('sequelize');
 
@@ -18,17 +20,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
+console.log("before connction");
 
-
-
-/********************************************************
-console.log("arrived here?")
-
+/********************************************************/
 const sequelize = new Sequelize('slikia', 'root', null, {
   host: 'localhost',
-  dialect: 'mysql'
+  dialect: 'mysql',
+  dialectOptions: {
+    socketPath: '/var/run/mysqld/mysqld.sock',
+    supportBigNumbers: true,
+    bigNumberStrings: true
+  },
 });
 
+console.log("reached here?");
 
 try {
    sequelize.authenticate();
@@ -37,57 +42,17 @@ try {
   console.error('Unable to connect to the database:', error);
 }
 
-*******************************************************/
 
-
-/********************************************************
-
-var mysql = require('mysql')
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '123456',
-  database: 'slikia'
-})
-
-connection.connect(function(err) {
-  if (err) {
-    console.error('error connecting: ' + err.stack);
-    return;
-  }
-
-  console.log('connected as id ' + connection.threadId);
-});
-
-connection.query('SELECT 1 + 1 AS solution', function (err, rows, fields) {
-  if (err) throw err
-
-  console.log('The solution is: ', rows[0].solution)
-})
-
-connection.end()
-
-********************************************************/
-
-
-
-
-/*******************************************************/
+/*******************************************************
 const db = require("./app/models");
 
 //db.sequelize.sync();
 db.sequelize.sync({ force: true }).then(() => {
     console.log("Drop and re-sync db.");
   });
-/******************************************************/
+******************************************************/
 
 //require("./app/routes/citizen.routes")(app);
-
-
-
-
-
-
 
 
 app.get('/', (req, res) => {
