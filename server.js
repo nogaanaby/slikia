@@ -20,31 +20,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-console.log("before connction");
-
-/********************************************************/
-// const sequelize = new Sequelize('slikia', 'root', null, {
-//   host: 'localhost',
-//   dialect: 'mysql',
-//   dialectOptions: {
-//     socketPath: '/var/run/mysqld/mysqld.sock',
-//     supportBigNumbers: true,
-//     bigNumberStrings: true
-//   },
-// });
-
-// console.log("reached here?");
-
-// try {
-//    sequelize.authenticate();
-//   console.log('Connection has been established successfully.');
-// } catch (error) {
-//   console.error('Unable to connect to the database:', error);
-// }
-
-
 /*******************************************************/
-const db = require("./app/models");
+//const db = require("./app/models");
 
 
 //create if exist only, dont create the same table twice
@@ -62,12 +39,12 @@ const db = require("./app/models");
 //   })
 /******************************************************/
 
-//require("./app/routes/citizen.routes")(app);
+require("./app/routes/citizen.routes")(app);
 
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+// app.get('/', (req, res) => {
+//   res.send('Hello World!')
+// })
 
 
 // set port, listen for requests

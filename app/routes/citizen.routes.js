@@ -1,29 +1,22 @@
 module.exports = app => {
-    //const citizens = require("../controllers/citizen.controller.js");
+    const citizens = require("../controllers/citizen.controller.js");
   
     var router = require("express").Router();
   
 
-    router.get("/", (req,res)=>{
-      try{
-        res.send("hi")
-      }catch(e){
-        res.status(500).send(e)
-      }
-    });
-
+    router.get("/", citizens.findAll);
+    router.get("/:id", citizens.findOne);
+    router.post("/", citizens.create);
 
     // // Create a new citizen
-    // router.post("/", citizens.create);
-  
-    // // Retrieve all citizens
-    // router.get("/", citizens.findAll);
+    //
+
   
     // // Retrieve all published citizens
     // router.get("/published", citizens.findAllPublished);
   
-    // // Retrieve a single citizen with id
-    // router.get("/:id", citizens.findOne);
+    // Retrieve a single citizen with id
+
   
     // // Update a citizen with id
     // router.put("/:id", citizens.update);
