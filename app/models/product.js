@@ -17,7 +17,15 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     inventoryQuantity: DataTypes.INTEGER,
     category: DataTypes.STRING,
-    price: DataTypes.INTEGER
+    price: DataTypes.INTEGER,
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal('NOW()')
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal('NOW()')
+    }
   }, {
     sequelize,
     modelName: 'Product',

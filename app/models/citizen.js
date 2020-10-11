@@ -16,7 +16,15 @@ module.exports = (sequelize, DataTypes) => {
   Citizen.init({
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
-    budgetId: DataTypes.INTEGER
+    budgetId: DataTypes.INTEGER,
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal('NOW()')
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal('NOW()')
+    }
   }, {
     sequelize,
     modelName: 'Citizen',

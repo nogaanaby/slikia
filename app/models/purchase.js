@@ -17,7 +17,15 @@ module.exports = (sequelize, DataTypes) => {
     citizenId: DataTypes.INTEGER,
     budgetId: DataTypes.INTEGER,
     productId: DataTypes.INTEGER,
-    purchaseQuantity: DataTypes.INTEGER
+    purchaseQuantity: DataTypes.INTEGER,
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal('NOW()')
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal('NOW()')
+    }
   }, {
     sequelize,
     modelName: 'Purchase',

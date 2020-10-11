@@ -53,11 +53,13 @@ const db = require("./app/models");
 
 //db.sequelize.sync();
 // use ‘force’ option to sync between model schema and database only when you don’t need to maintain data in the table.
-db.sequelize.sync({ alter: true, force: true  }).then(() => {
-    console.log("Drop and re-sync db.");
-  }).catch(e => {
-    console.log(e)
-  })
+//this command would alter the table but delete your data
+// db.sequelize.sync({ alter: true, force: true  }).then(() => {
+
+//     console.log("Drop and re-sync db.");
+//   }).catch(e => {
+//     console.log(e)
+//   })
 /******************************************************/
 
 //require("./app/routes/citizen.routes")(app);
