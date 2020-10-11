@@ -59,22 +59,51 @@ exports.findOne = (req, res) => {
       });
 }
 
-// // Update a Citizen by the id in the request
-// exports.update = (req, res) => {
-  
-// };
 
-// // Delete a Citizen with the specified id in the request
-// exports.delete = (req, res) => {
-  
-// };
+exports.update = (req, res) => {
+  const id = req.params.id;
 
-// // Delete all Citizens from the database.
-// exports.deleteAll = (req, res) => {
-  
-// };
+  Citizen.update(req.body, {
+    where: { id: id }
+  })
+    .then(num => {
+      if (num == 1) {
+        res.send({
+          message: "Citizen was updated successfully."
+        });
+      } else {
+        res.send({
+          message: `Cannot update Citizen with id=${id}. Maybe Citizen was not found or req.body is empty!`
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error updating Citizen with id=" + id
+      });
+    });
+};
 
-// // Find all published Citizens
-// exports.findAllPublished = (req, res) => {
-  
-// };
+exports.delete = (req, res) => {
+  const id = req.params.id;
+
+  Citizen.destroy({
+    where: { id: id }
+  })
+    .then(num => {
+      if (num == 1) {
+        res.send({
+          message: "Citizen was deleted successfully!"
+        });
+      } else {
+        res.send({
+          message: `Cannot delete Citizen with id=${id}. Maybe Citizen was not found!`
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Could not delete Citizen with id=" + id
+      });
+    });
+};
