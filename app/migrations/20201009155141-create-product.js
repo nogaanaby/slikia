@@ -11,19 +11,24 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
+      inventoryQuantity: {
+        type: Sequelize.INTEGER
+      },
+      category: {
+        type: Sequelize.STRING
+      },
       price: {
         type: Sequelize.INTEGER
       },
-      quantity: {
-        type: Sequelize.INTEGER
-      },
-      createdAt: {
+      created_at: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP()')
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP()')
       }
     });
   },

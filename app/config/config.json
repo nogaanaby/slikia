@@ -1,9 +1,14 @@
 {
   "development": {
-    "username": "admin",
-    "password": null,
+    "username": "root",
+    "password": "123456",
     "database": "slikia",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "dialectOptions": {
+      "socketPath": "/var/run/mysqld/mysqld.sock",
+      "supportBigNumbers": true,
+      "bigNumberStrings": true
+    }
   }
 }

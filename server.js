@@ -23,34 +23,42 @@ app.use(bodyParser.urlencoded({ extended: true }));
 console.log("before connction");
 
 /********************************************************/
-const sequelize = new Sequelize('slikia', 'root', null, {
-  host: 'localhost',
-  dialect: 'mysql',
-  dialectOptions: {
-    socketPath: '/var/run/mysqld/mysqld.sock',
-    supportBigNumbers: true,
-    bigNumberStrings: true
-  },
-});
+// const sequelize = new Sequelize('slikia', 'root', null, {
+//   host: 'localhost',
+//   dialect: 'mysql',
+//   dialectOptions: {
+//     socketPath: '/var/run/mysqld/mysqld.sock',
+//     supportBigNumbers: true,
+//     bigNumberStrings: true
+//   },
+// });
 
-console.log("reached here?");
+// console.log("reached here?");
 
-try {
-   sequelize.authenticate();
-  console.log('Connection has been established successfully.');
-} catch (error) {
-  console.error('Unable to connect to the database:', error);
-}
+// try {
+//    sequelize.authenticate();
+//   console.log('Connection has been established successfully.');
+// } catch (error) {
+//   console.error('Unable to connect to the database:', error);
+// }
 
 
-/*******************************************************
+/*******************************************************/
 const db = require("./app/models");
 
+
+//create if exist only, dont create the same table twice
+//create table name only small ketter start
+//update fields: add. delete,edit
+
 //db.sequelize.sync();
-db.sequelize.sync({ force: true }).then(() => {
+// use ‘force’ option to sync between model schema and database only when you don’t need to maintain data in the table.
+db.sequelize.sync({ alter: true, force: true  }).then(() => {
     console.log("Drop and re-sync db.");
-  });
-******************************************************/
+  }).catch(e => {
+    console.log(e)
+  })
+/******************************************************/
 
 //require("./app/routes/citizen.routes")(app);
 

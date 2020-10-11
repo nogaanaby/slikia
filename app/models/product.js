@@ -15,11 +15,13 @@ module.exports = (sequelize, DataTypes) => {
   };
   Product.init({
     name: DataTypes.STRING,
-    price: DataTypes.INTEGER,
-    quantity: DataTypes.INTEGER
+    inventoryQuantity: DataTypes.INTEGER,
+    category: DataTypes.STRING,
+    price: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Product',
+    underscored: true,
   });
   return Product;
 };

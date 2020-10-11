@@ -15,6 +15,20 @@ if (config.use_env_variable) {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
+
+
+// const sequelize = new Sequelize('slikia', 'root', '123456', {
+//   host: 'localhost',
+//   dialect: 'mysql',
+//   dialectOptions: {
+//     socketPath: '/var/run/mysqld/mysqld.sock',
+//     supportBigNumbers: true,
+//     bigNumberStrings: true
+//   },
+// });
+
+
+
 fs
   .readdirSync(__dirname)
   .filter(file => {

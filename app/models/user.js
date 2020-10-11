@@ -16,10 +16,19 @@ module.exports = (sequelize, DataTypes) => {
   User.init({
     userName: DataTypes.STRING,
     password: DataTypes.STRING,
-    userTypeId: DataTypes.INTEGER
+    userType: DataTypes.STRING,
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal('NOW()')
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal('NOW()')
+    }
   }, {
     sequelize,
     modelName: 'User',
+    underscored: true
   });
   return User;
 };
