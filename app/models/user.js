@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     userName: DataTypes.STRING,
     password: DataTypes.STRING,
     userType: DataTypes.STRING,
+    token: DataTypes.STRING,
     createdAt: {
       type: DataTypes.DATE,
       defaultValue: sequelize.literal('NOW()')

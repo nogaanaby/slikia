@@ -40,3 +40,4 @@ quantity:integer,category:string,price:integer --underscored
 
 
 npx sequelize-cli migration:generate --name migration-skeleton
+

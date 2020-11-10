@@ -17,6 +17,9 @@ module.exports = {
       userType: {
         type: Sequelize.STRING
       },
+      token:{
+        type: Sequelize.STRING
+      },
       create_at: {
         allowNull: false,
         type: Sequelize.DATE,
