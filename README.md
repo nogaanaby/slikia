@@ -11,7 +11,10 @@ crm for the Slikia
  
 sudo mysql - enter the mysql server
  
-create databse slikia;
+> create databse slikia;
+
+
+inside the app folder
 
 npx sequelize-cli db:migrate
 

@@ -21,14 +21,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 /*******************************************************/
-//const db = require("./app/models");
+const db = require("./app/models");
 
 
 //create if exist only, dont create the same table twice
 //create table name only small ketter start
 //update fields: add. delete,edit
 
-//db.sequelize.sync();
+db.sequelize.sync();
 // use ‘force’ option to sync between model schema and database only when you don’t need to maintain data in the table.
 //this command would alter the table but delete your data
 // db.sequelize.sync({ alter: true, force: true  }).then(() => {
