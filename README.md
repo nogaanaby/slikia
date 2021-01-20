@@ -8,6 +8,9 @@ crm for the Slikia
 
  sudo service mysql start // start mysql services, if its ubuntu and you use root@localhost you should give a password to you root mysql user otherwize its not gong to give you to access the database: https://stackoverflow.com/questions/7864276/cannot-connect-to-database-server-mysql-workbench
  
+ 
+sudo mysql - enter the mysql server
+ 
 create databse slikia;
 
 npx sequelize-cli db:migrate
