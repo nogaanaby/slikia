@@ -47,3 +47,19 @@ quantity:integer,category:string,price:integer --underscored
 
 npx sequelize-cli migration:generate --name migration-skeleton
 
+
+
+
+
+
+/************
+,
+    // "dialectOptions": {
+    //   "socketPath": "/var/run/mysqld/mysqld.sock",
+    //   "supportBigNumbers": true,
+    //   "bigNumberStrings": true
+    // }
+
+    //mysql root password: 318298296
+    ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '318298296';
+*************/

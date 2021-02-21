@@ -4,10 +4,17 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "npx nodemon app/server.js -w app",
+    "dev": "npx nodemon server.js -w app server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "nodejs",
+    "express",
+    "rest",
+    "api",
+    "sequelize",
+    "mysql"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -20,7 +27,7 @@
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
     "path": "^0.12.7",
-    "sequelize": "^6.3.5",
+    "sequelize": "^6.4.0",
     "sequelize-auto": "^0.6.3"
   },
   "devDependencies": {

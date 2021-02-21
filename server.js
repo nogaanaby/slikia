@@ -7,11 +7,7 @@ const { Sequelize } = require('sequelize');
 
 const app = express();
 
-var corsOptions = {
-  origin: "http://localhost:8081"
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
@@ -40,6 +36,7 @@ db.sequelize.sync();
 /******************************************************/
 
 require("./app/routes/citizen.routes")(app);
+require("./app/routes/user.routes")(app);
 
 
 // app.get('/', (req, res) => {
@@ -48,7 +45,7 @@ require("./app/routes/citizen.routes")(app);
 
 
 // set port, listen for requests
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
