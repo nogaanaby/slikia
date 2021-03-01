@@ -71,6 +71,35 @@ exports.login = (req, res) => {
     });
 };
 
+
+
+exports.getInfo = (req, res) => {
+  console.log("get info")
+  const token = req.params.token;
+
+  if (!token) {
+    res.status(400).send({
+      message: req.body
+    });
+    return;
+  }
+
+  //search my token in the database  tokenTest123456789
+  User.findOne({ where: { token: token } })
+    .then(thisUser => {
+      res.send(thisUser);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: err
+      });
+    });
+
+
+};
+
+
+
 exports.findAll = (req, res) => {
   User.findAll()
     .then(data => {

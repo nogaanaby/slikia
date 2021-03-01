@@ -96,7 +96,7 @@ exports.delete = (req, res) => {
           message: "Citizen was deleted successfully!"
         });
       } else {
-        res.send({
+        res.status(500).send({
           message: `Cannot delete Citizen with id=${id}. Maybe Citizen was not found!`
         });
       }

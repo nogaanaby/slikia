@@ -8,6 +8,7 @@ module.exports = app => {
     router.get("/", users.findAll);
 
     router.post("/login", users.login);
+    router.get("/getInfo/:token", users.getInfo);
 
      app.use('/api/user', router);
   };
